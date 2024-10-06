@@ -1,5 +1,5 @@
 variable "VarProduction" {
-  description = "name of instancia EC2 VarProduction"
+  description = "Nombre de la instancia EC2 VarProduction"
   type        = string
 }
 
@@ -44,10 +44,10 @@ resource "aws_security_group" "groupInstances" {
 }
 
 resource "aws_instance" "web-server-instance" {
-  ami           = "ami-0c55b159cbfafe1f0"
-  instance_type = "t2.micro"
-  subnet_id     = aws_subnet.subnetCIDR.id
-  security_groups = [aws_security_group.groupInstances.name]
+  ami             = "ami-0c55b159cbfafe1f0"
+  instance_type   = "t2.micro"
+  subnet_id       = aws_subnet.subnetCIDR.id
+  security_groups = [aws_security_group.groupInstances.id]
 
   root_block_device {
     volume_size = 30
